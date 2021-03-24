@@ -20,9 +20,7 @@ resource "aws_s3_bucket_object" "install_config" {
   content = file(var.install_config_path)
   etag    = md5(var.install_config_path)
 }
-resource "local_file" "assetsadf_dir" {
-  filename = "${local.assets_dir}/.shto"
-}
+
 resource "local_file" "assets_dir" {
   filename = "${local.assets_dir}/.witness"
 
