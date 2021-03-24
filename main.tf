@@ -72,4 +72,11 @@ data "aws_s3_bucket_object" "kubeconfig" {
     null_resource.deploy_ocp,
   ]
 }
+data "aws_s3_bucket_object" "kubeadmin_password" {
+  bucket = aws_s3_bucket.assets_bucket.bucket
+  key    = "auth/kubeadmin-password"
 
+  depends_on = [
+    null_resource.deploy_ocp,
+  ]
+}
